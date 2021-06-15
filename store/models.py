@@ -2,11 +2,12 @@ from django.db.models.deletion import CASCADE
 from category.models import Category
 from django.db import models
 from django.urls import reverse
+from ckeditor.fields import RichTextField
 
 class Product(models.Model):
     title = models.CharField(max_length=255)
     slug = models.SlugField(unique=True)
-    description = models.TextField(max_length=500,blank=False)
+    description = RichTextField()
     price = models.IntegerField()
     image = models.ImageField(upload_to='products',default='default_prod.jpg')
     created = models.DateTimeField(auto_now=False, auto_now_add=True)

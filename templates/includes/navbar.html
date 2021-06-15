@@ -4,13 +4,13 @@
 
 
 <header class="section-header">
-    <section class="header-main border-bottom">
+    <section class="header-main">
         <div class="container-fluid">
             <div class="row align-items-center">
-                <div class="col-lg-3 col-sm-4 col-md-4 col-5"> <a href="#" class="brand-wrap" data-abc="true">
-                         <img class="logo" src="http://ampexamples.com/data/upload/2017/08/bootstrap2_logo.png"> </a> 
+                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-5"> <a href="{% url 'home' %}" class="brand-wrap" data-abc="true">
+                  <img class="img-fluid" src="{% static './images/logo_transparent.png'%}" /> </a>     
                 </div>
-                <div class="col-lg-4 col-xl-5 col-sm-8 col-md-4 d-none d-md-block">
+                <div class="col-xl-6 col-lg-6 col-md-5 col-sm-8 d-none d-md-block">
                     <form action="{% url 'search' %}" class="search" method="GET">
                         <div class="input-group w-100">
                           {% if 'search' in request.path %}
@@ -24,7 +24,7 @@
                         </div>
                       </form>
                 </div>
-                <div class="col-lg-5 col-xl-4 col-sm-8 col-md-4 col-7">
+                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-8 col-7">
                     <div class="d-flex justify-content-end mb-3 mb-lg-0">
                         <div class="widget-header">
                           <small class="title ">Bienvenido Usuario!</small>
@@ -46,28 +46,36 @@
         </div>
     </section>
     <nav class="navbar navbar-expand-md navbar-main border-bottom">
-        <div class="container-fluid">
-            <form action="{% url 'search' %}" method="GET" class="d-md-none my-2" >
-                <div class="input-group"> 
-                    {% if 'search' in request.path %}
-                        <input type="text" class="form-control" placeholder="Buscar producto" name="keyword" value="{{keyword}}"/>
-                    {% else %}
-                        <input type="text" class="form-control" placeholder="Buscar producto" name="keyword"/>
-                    {%endif%}
-                    <div class="input-group-append"> <button type="submit" class="btn btn-secondary"> <i class="fa fa-search"></i> </button> </div>
-                </div>
-            </form> <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#dropdown6" aria-expanded="false"> <span class="navbar-toggler-icon"></span> </button>
-            <div class="navbar-collapse collapse" id="dropdown6">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="" data-toggle="dropdown" data-abc="true" aria-expanded="false">Laptops</a>
-                        <div class="dropdown-menu"> <a class="dropdown-item" href="" data-abc="true">Lenovo</a> <a class="dropdown-item" href="" data-abc="true">Dell</a> <a class="dropdown-item" href="" data-abc="true">HP</a> <a class="dropdown-item" href="" data-abc="true">Apple</a> </div>
-                    </li>
-                    <li class="nav-item"> <a class="nav-link" href="" data-abc="true">Refurbished Mobile</a> </li>
-                    <li class="nav-item"> <a class="nav-link" href="" data-abc="true">Accessories & Peripheral</a> </li>
-                    <li class="nav-item"> <a class="nav-link" href="" data-abc="true">Blog</a> </li>
-                    <li class="nav-item"> <a class="nav-link" href="" data-abc="true">Support</a> </li>
-                </ul>
-            </div>
-        </div>
+      <div class="container-fluid">
+          <form action="{% url 'search' %}" method="GET" class="d-md-none my-2" >
+              <div class="input-group"> 
+                  {% if 'search' in request.path %}
+                      <input type="text" class="form-control" placeholder="Buscar producto" name="keyword" value="{{keyword}}"/>
+                  {% else %}
+                      <input type="text" class="form-control" placeholder="Buscar producto" name="keyword"/>
+                  {%endif%}
+                  <div class="input-group-append"> <button type="submit" class="btn btn-secondary"> <i class="fa fa-search"></i> </button> </div>
+              </div>
+          </form> 
+          <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#dropdown6" aria-expanded="false"> <span class="navbar-toggler-icon"></span> </button>
+          <div class="navbar-collapse collapse" id="dropdown6">
+              <ul class="navbar-nav mx-auto">
+                <li class="nav-item"> <a class="nav-link active" href="{% url 'home' %}" data-abc="true">Home</a> </li>  
+                <li class="nav-item dropdown"> 
+                  <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Categorias
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    {% for category in links %}
+                    <a class="dropdown-item" href="{{category.get_url}}">{{category.name}}</a>
+                    {% endfor %}
+                  </div>
+                </li>
+                <li class="nav-item"> <a class="nav-link" href="" data-abc="true">Acerca De</a> </li>
+                <li class="nav-item"> <a class="nav-link" href="" data-abc="true">Contacto</a> </li>
+                <li class="nav-item"> <a class="nav-link" href="" data-abc="true">Nuevo Producto</a> </li>
+              </ul>
+          </div>
+      </div>
     </nav>
 </header>
