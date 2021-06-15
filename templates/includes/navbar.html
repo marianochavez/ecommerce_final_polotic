@@ -27,12 +27,22 @@
                 <div class="col-xl-3 col-lg-3 col-md-4 col-sm-8 col-7">
                     <div class="d-flex justify-content-end mb-3 mb-lg-0">
                         <div class="widget-header">
-                          <small class="title ">Bienvenido Usuario!</small>
-                          <div>
-                            <a href="./signin.html">Sign in</a>
-                            <span class="dark-transp"> | </span>
-                            <a href="./register.html"> Register</a>
-                          </div>
+                          {% if user.is_authenticated %}
+                            <p class="h4 float-right">Hola {{user.username}}!</p>
+                            <div class="float-right">
+                              <a href="">Mi Cuenta</a>
+                              <span class="dark-transp"> | </span>
+                              <a  href="{% url 'logout' %}">Desconectarme</a>
+                            </div>
+                          {% else %}
+                            <small class="title ">Ingresá para utilizar la tienda!</small>
+                            <div>
+                              <a href="{% url 'login' %}">Iniciar Sesion</a>
+                              <span class="dark-transp"> | </span>
+                              <a href="{% url 'registro' %}"> Registrarse</a>
+                            </div>
+                          {% endif %}
+                          
                         </div>
                         <a href="{% url 'cart' %}" class="widget-header pl-3 ml-3">
                           <div class="icon icon-sm rounded-circle border border-dark">
@@ -73,7 +83,10 @@
                 </li>
                 <li class="nav-item"> <a class="nav-link" href="" data-abc="true">Acerca De</a> </li>
                 <li class="nav-item"> <a class="nav-link" href="" data-abc="true">Contacto</a> </li>
-                <li class="nav-item"> <a class="nav-link" href="" data-abc="true">Nuevo Producto</a> </li>
+                
+                {% if user.is_authenticated and user.is_staff %}
+                  <li class="nav-item"> <a class="nav-link" href="" data-abc="true">Nuevo Producto</a> </li>
+                {% endif %}
               </ul>
           </div>
       </div>

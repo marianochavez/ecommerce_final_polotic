@@ -1060,7 +1060,7 @@ a[class*=card]:hover .title {
 
 .price {
   font-weight: 600;
-  color: #212529;
+  color: #477aad;
 }
 
 .price-old {
@@ -1359,8 +1359,8 @@ a[class*=card]:hover .title {
   display: block;
 }
 .gallery-wrap .img-big-wrap img {
-  height: 450px;
-  width: auto;
+  height: auto;
+  width: 100%;
   display: inline-block;
 }
 .gallery-wrap .thumbs-wrap {

@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'store',
     'cart',
     'ckeditor',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -140,3 +141,8 @@ STATICFILES_DIRS = [
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT =  BASE_DIR/'static/media'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'home'

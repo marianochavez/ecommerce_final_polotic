@@ -4,6 +4,8 @@ from store.models import Product
 
 from .models import Cart, CartItem
 
+from django.contrib.auth.decorators import login_required
+
 
 
 def _cart_id(request):
@@ -12,6 +14,7 @@ def _cart_id(request):
         cart = request.session.create()
     return cart
 
+@login_required(login_url='/accounts/login/')
 def add_cart(request, product_id):
     product = Product.objects.get(id=product_id) # get the product
     try:
@@ -35,6 +38,7 @@ def add_cart(request, product_id):
         cart_item.save()
     return redirect('cart')
 
+@login_required(login_url='/accounts/login/')
 def remove_cart(request, product_id):
     cart = Cart.objects.get(cart_id = _cart_id(request))
     product = get_object_or_404(Product, id = product_id)
@@ -47,6 +51,7 @@ def remove_cart(request, product_id):
     
     return redirect('cart')
 
+@login_required(login_url='/accounts/login/')
 def remove_cart_item(request, product_id):
     cart = Cart.objects.get(cart_id = _cart_id(request))
     product = get_object_or_404(Product, id = product_id)
@@ -54,12 +59,14 @@ def remove_cart_item(request, product_id):
     cart_item.delete()
     return redirect('cart')
 
+@login_required(login_url='/accounts/login/')
 def remove_all_cart_items(request):
     cart = Cart.objects.get(cart_id = _cart_id(request))
     cart_item = CartItem.objects.all().filter(cart = cart)
     cart_item.delete()
     return redirect('cart')
 
+@login_required(login_url='/accounts/login/')
 def cart(request, total=0, quantity=0, cart_items=None):
     try:
         cart = Cart.objects.get(cart_id = _cart_id(request))

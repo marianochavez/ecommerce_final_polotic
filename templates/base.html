@@ -9,9 +9,11 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-
-    <title>Jaguarete Kaa | Ecommerce</title>
-
+    
+    {% block title %}
+      <title>Jaguarete Kaa | Ecommerce</title>
+    {% endblock title %}
+      
     <link
       href="{% static 'images/favicon.ico'%}"
       rel="shortcut icon"
@@ -55,7 +57,7 @@
 
     <!-- responsive slides -->
     <script src="{% static 'js/responsiveslides.min.js' %}"></script>
-
+      
     
   </head>
   <body>
