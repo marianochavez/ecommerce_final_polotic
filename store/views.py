@@ -1,13 +1,13 @@
 from cart.models import CartItem
 from cart.views import _cart_id
-from category.models import Category
+# from category.models import Category
 from django.core import paginator
 from django.core.paginator import EmptyPage, Page, PageNotAnInteger, Paginator
 from django.db.models import Q
 from django.http.response import HttpResponse
 from django.shortcuts import get_object_or_404, render
 
-from store.models import Product
+from store.models import Product, Category
 
 def store(request,category_slug=None):
     categories = None
