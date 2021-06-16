@@ -28,8 +28,12 @@
                     <div class="d-flex justify-content-end mb-3 mb-lg-0">
                         <div class="widget-header">
                           {% if user.is_authenticated %}
-                            <p class="h4 float-right">Hola {{user.username}}!</p>
-                            <div class="float-right">
+                            <div class="row">
+                              <div class="col text-right">
+                                <p class="h4 mr-0">Hola {{user.username}}!</p>
+                              </div>
+                            </div>
+                            <div class="row">
                               <a href="">Mi Cuenta</a>
                               <span class="dark-transp"> | </span>
                               <a  href="{% url 'logout' %}">Desconectarme</a>
@@ -42,7 +46,6 @@
                               <a href="{% url 'registro' %}"> Registrarse</a>
                             </div>
                           {% endif %}
-                          
                         </div>
                         <a href="{% url 'cart' %}" class="widget-header pl-3 ml-3">
                           <div class="icon icon-sm rounded-circle border border-dark">

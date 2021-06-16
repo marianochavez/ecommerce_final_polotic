@@ -15,47 +15,59 @@
 </section>
 <section class="section-name padding-y-sm">
 	<div class="container">
-		<header class="section-heading">
+		<div class="section-heading">
 			<a href="{% url 'store'%}" class="btn btn-outline-primary float-right">Ver Todos</a>
 			<h3 class="section-title">Ultimos Productos</h3>
-		</header>
+		</div>
 		<div class="row">
 			{% for product in products %}
-				{% if forloop.counter <= 4 %}
-					<div class="col-md-3">
-						<div class="card card-product-grid">
-							<a href="{{product.get_url}}" class="img-wrap"> <img src="{{product.image.url}}"> </a>
-							<figcaption class="info-wrap">
-								<div class="fix-height">
-									<a href="{{product.get_url}}" class="title">{{product.title}}</a>
-									<div class="price-wrap mt-2">
-										<span class="price">$ {{product.price}}</span>
-									</div>
+				{% if forloop.counter <= 3 %}
+				<div class="col-md-4">
+					<div class="card card-product-grid">
+						<a href="{{product.get_url}}">
+							<img class="card-img-top border-bottom" src="{{product.image.url}}">
+						</a> 
+						<div class="info-wrap">
+							<div class="fix-height">
+								<a href="{{product.get_url}}" class="title-text">{{product.title}}</a>
+								<div class="mt-2">
+									<span class="price">$ {{product.price}}</span>
 								</div>
-								<a href="{{ product.get_url }}" class="btn btn-block btn-primary">Ver producto</a>
-							</figcaption>
+							</div>
+							<div class="card-footer">
+							<a href="{{ product.get_url }}" class="btn btn-block btn-dark">Ver producto</a>
+							</div>
 						</div>
 					</div>
+				</div>
 				{% endif %}
 			{% endfor %}
 			</div>	
-			<header class="section-heading">
+			<div class="section-heading">
 				<h3 class="section-title">Mas Productos</h3>
-			</header>
-			<table class="table table-striped">
-				<tbody>
-						{% for product in products %}
-							{% if forloop.counter > 4 and forloop.counter <= 10%}
-							<tr>
-								<td><a href="{{product.get_url}}" class="title">{{product.title}}</a></td>
-								<td>{{product.description}}</td>
-								<td>$ {{product.price}}</td>
-								<td class="text-right"><a href="{{ product.get_url }}" class="btn btn-primary">Ver producto</a></td>
-							</tr>
-							{% endif %}
-						{% endfor %}
-				</tbody>
-			</table>
+			</div>
+			<div class="container">
+					{% for product in products %}
+						{% if forloop.counter > 4 and forloop.counter <= 10%}
+						<div class="row align-items-center border-bottom pb-2">
+							<div class="col-2">
+								<a href="{{product.get_url}}" class="title">{{product.title}}</a></td>
+							</div>
+							<div class="col-6">
+								<div class="text-home">
+									{{product.description}}
+								</div>
+							</div>
+							<div class="col-2 price text-center">
+								$ {{product.price}}
+							</div>
+							<div class="col-2 text-right">
+								<a href="{{ product.get_url }}" class="btn btn-dark">Ver producto</a></td>
+							</div>
+						</div>
+						{% endif %}
+					{% endfor %}	
+			</div>
 		</div>
 	</div>
 </section>
