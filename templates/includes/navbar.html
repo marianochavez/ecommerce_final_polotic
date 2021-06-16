@@ -43,7 +43,7 @@
                             <div>
                               <a href="{% url 'login' %}">Iniciar Sesion</a>
                               <span class="dark-transp"> | </span>
-                              <a href="{% url 'registro' %}"> Registrarse</a>
+                              <a href="{% url 'register' %}"> Registrarse</a>
                             </div>
                           {% endif %}
                         </div>
@@ -88,7 +88,7 @@
                 <li class="nav-item"> <a class="nav-link" href="" data-abc="true">Contacto</a> </li>
                 
                 {% if user.is_authenticated and user.is_staff %}
-                  <li class="nav-item"> <a class="nav-link" href="" data-abc="true">Nuevo Producto</a> </li>
+                  <li class="nav-item"> <a class="nav-link" href="{% url 'product_create' %}" data-abc="true">Nuevo Producto</a> </li>
                 {% endif %}
               </ul>
           </div>

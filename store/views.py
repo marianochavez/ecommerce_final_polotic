@@ -1,3 +1,5 @@
+from django.urls.base import is_valid_path
+from store.forms import ProductForm
 from cart.models import CartItem
 from cart.views import _cart_id
 # from category.models import Category
@@ -5,9 +7,13 @@ from django.core import paginator
 from django.core.paginator import EmptyPage, Page, PageNotAnInteger, Paginator
 from django.db.models import Q
 from django.http.response import HttpResponse
-from django.shortcuts import get_object_or_404, render
-
+from django.shortcuts import get_object_or_404, render, redirect
+from django.contrib import messages 
 from store.models import Product, Category
+from django.contrib.admin.views.decorators import staff_member_required
+from django.contrib.auth.decorators import user_passes_test
+import operator
+
 
 def store(request,category_slug=None):
     categories = None
@@ -61,3 +67,34 @@ def search(request):
         'keyword': keyword,
     }
     return render(request, 'store/store.html', context)
+
+@staff_member_required
+def product_create(request):
+    form = ProductForm(request.POST or None, request.FILES or None)
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+            
+    return render(request,'store/product_create.html', {'form': form})
+
+@user_passes_test(operator.attrgetter('is_staff'), login_url='home')
+def product_edit(request, product_slug):
+    product = get_object_or_404(Product, slug=product_slug)
+    if request.method == 'POST':
+        form = ProductForm(data=request.POST,files=request.POST, instance=product)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+        else:
+           return render(request,'store/product_edit.html', {'form': form, 'product':product})
+    else:
+        form = ProductForm(instance=product)
+        return render(request,'store/product_edit.html', {'form': form, 'product':product})
+
+@staff_member_required
+def product_delete(request, product_slug):
+    product = get_object_or_404(Product, slug=product_slug)
+    product.is_active = False
+    product.save()
+    return redirect('home')

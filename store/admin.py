@@ -13,6 +13,5 @@ class ProductAdmin(admin.ModelAdmin):
     search_fields = ('title','slug','description','category')
     prepopulated_fields = {'slug':('title',)}
 
-
 admin.site.register(Category,CategoryAdmin)
-admin.site.register(Product, ProductAdmin)
+admin.site.register(Product, ProductAdmin)  

@@ -16,7 +16,15 @@
 		</article> 
 				</aside>
 				<main class="col-md-6 border-left">
-
+					
+					{% if user.is_staff %}
+					<div class="row ">
+						<div class="col text-right mr-2 mt-2">
+							<a href="{% url 'product_edit' single_product.slug %}" class="btn btn-danger">MODIFICAR PRODUCTO</a>
+						</div>
+					</div>
+					{% endif %}
+						
 					<form action="{% url 'add_cart' single_product.id %}" method="POST">
 						{% csrf_token %}
 						<article class="content-body">

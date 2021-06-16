@@ -15,7 +15,7 @@ urlpatterns = [
     # =========== USERs ==================
     path('accounts/', include('django.contrib.auth.urls')),
     path('accounts/login/', auth_views.LoginView.as_view()),
-    path('accounts/register/', views.signup, name='registro'),
+    path('accounts/register/', views.signup, name='register'),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
