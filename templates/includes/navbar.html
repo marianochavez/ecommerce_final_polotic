@@ -84,8 +84,8 @@
                     {% endfor %}
                   </div>
                 </li>
-                <li class="nav-item"> <a class="nav-link" href="" data-abc="true">Acerca De</a> </li>
-                <li class="nav-item"> <a class="nav-link" href="" data-abc="true">Contacto</a> </li>
+                <li class="nav-item"> <a class="nav-link" href="{% url 'about' %}" data-abc="true">Nosotros</a> </li>
+                <li class="nav-item"> <a class="nav-link" href="{% url 'contact' %}" data-abc="true">Contacto</a> </li>
                 
                 {% if user.is_authenticated and user.is_staff %}
                   <li class="nav-item"> <a class="nav-link" href="{% url 'product_create' %}" data-abc="true">Nuevo Producto</a> </li>

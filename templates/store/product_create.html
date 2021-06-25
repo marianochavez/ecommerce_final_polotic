@@ -1,6 +1,11 @@
 {% extends 'base.html' %}
 {% load static %}
 {% load crispy_forms_tags %}
+
+{% block title %}
+  <title>Nuevo Producto | Jaguarete Kaa</title>
+{% endblock title %}
+  
 {%block content %}
 <div class="container padding-y">
   <div class="row">
@@ -40,7 +45,7 @@
             </div>
             <div class="form-row mb-2">
                 <div class="col text-center">
-                    <label for="description" class="font-weight-bold">Descripcion</label><br>
+                    <label for="" class="font-weight-bold">Descripcion</label><br>
                     {{form.description}}
                     {{form.description.errors}}
                 </div>

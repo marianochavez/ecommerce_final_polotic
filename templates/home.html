@@ -3,25 +3,23 @@
 
 {% block content %}
 	
-<section class="section-intro padding-y-sm">
-	<div class="container">
+<section class="section-intro home-banner">
 		<ul class="rslides">
 			<li><img src="{% static './images/banners/banner1.jpg' %}" /></li>
 			<li><img src="{% static './images/banners/banner5.jpeg' %}" /></li>
 			<li><img src="{% static './images/banners/banner3.jpg' %}" /></li>
 			<li><img src="{% static './images/banners/banner4.jpg' %}" /></li>
-		</ul>
-	</div>
+		</ul>	
 </section>
 <section class="section-name padding-y-sm">
 	<div class="container">
-		<div class="section-heading">
+		<div class="section-heading border-bottom">
 			<a href="{% url 'store'%}" class="btn btn-outline-primary float-right">Ver Todos</a>
 			<h3 class="section-title">Ultimos Productos</h3>
 		</div>
 		<div class="row">
 			{% for product in products %}
-				{% if forloop.counter <= 3 %}
+				{% if forloop.counter <= 6 %}
 				<div class="col-md-4">
 					<div class="card card-product-grid">
 						<a href="{{product.get_url}}">
@@ -34,16 +32,17 @@
 									<span class="price">$ {{product.price}}</span>
 								</div>
 							</div>
-							<div class="card-footer">
+							<!-- <div class="card-footer">
 							<a href="{{ product.get_url }}" class="btn btn-block btn-dark">Ver producto</a>
-							</div>
+							</div> -->
 						</div>
-					</div>
+					</div>	
 				</div>
 				{% endif %}
 			{% endfor %}
-			</div>	
-			<div class="section-heading">
+		</div>	
+			<!-- Product List - not implemented -->
+			<!-- <div class="section-heading border-bottom">
 				<h3 class="section-title">Mas Productos</h3>
 			</div>
 			<div class="container">
@@ -67,7 +66,7 @@
 						</div>
 						{% endif %}
 					{% endfor %}	
-			</div>
+			</div> -->
 		</div>
 	</div>
 </section>
@@ -78,7 +77,7 @@
 		$(".rslides").responsiveSlides({
 			auto: true,             // Boolean: Animate automatically, true or false
 			speed: 500,             // Integer: Speed of the transition, in milliseconds
-			timeout: 5000,          // Integer: Time between slide transitions, in milliseconds
+			timeout: 3000,          // Integer: Time between slide transitions, in milliseconds
 			pager: false,           // Boolean: Show pager, true or false
 			nav: false,             // Boolean: Show navigation, true or false
 			random: false,          // Boolean: Randomize the order of the slides, true or false

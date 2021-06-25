@@ -9,6 +9,9 @@ html {
 
 body{
   background-color: #fff;
+  position: relative;
+  padding-bottom: 6rem;
+  min-height: 100vh;
 }
 
 a:hover {
@@ -469,11 +472,48 @@ p:last-child {
   color: gray;
 }
 
-/* desktop only */
-/* desktop only .end */
+/* ================ SECTION-ABOUT ==================  */
+.image-aboutus-banner {
+  background: linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7)), url('/static/images/banners/warehouse.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  color: #fff;
+  padding-top: 110px;
+  padding-bottom:110px;
+  margin-top: 0 !important;
+}
+
+.image-world-banner {
+  background: linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7)), url('/static/images/banners/save-world.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  color: #fff;
+  padding-top: 110px;
+  padding-bottom:110px;
+}
+
+.image-shipping-banner {
+  background: linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7)), url('/static/images/banners/shipping.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  color: #fff;
+  padding-top: 110px;
+  padding-bottom:110px;
+  margin-bottom: -2vh !important;
+}
+
 /* ================ SECTION-FOOTER ==================  */
 .section-footer {
   background-color: #fff566;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  margin-top: 20px;
 }
 .section-footer ul li {
   margin-bottom: 5px;

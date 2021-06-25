@@ -7,10 +7,13 @@ html {
   font-size: 15px;
 }
 
-/* ========================
-INCLUDE STYLES AND COMPONENTS
-===================== */
-/* ================== HELPERS  =================== */
+body{
+  background-color: #fff;
+  position: relative;
+  padding-bottom: 6rem;
+  min-height: 100vh;
+}
+
 a:hover {
   text-decoration: none;
 }
@@ -20,7 +23,9 @@ a:hover {
   display: block;
 }
 .img-wrap img {
-  max-width: 100%;
+  
+  width: auto;
+  
 }
 
 .icon-wrap {
@@ -28,9 +33,6 @@ a:hover {
   display: inline-block;
 }
 
-.price-wrap {
-  letter-spacing: -0.7px;
-}
 
 .content-body {
   flex: 1 1 auto;
@@ -447,13 +449,13 @@ p:last-child {
   position: relative;
 }
 .widget-header a {
-  color: #343a40;
+  color: black;
 }
 .widget-header a:hover {
-  color: #3167eb;
+  color: gray;
 }
 .widget-header i {
-  color: #969696;
+  color: black;
 }
 .widget-header form {
   min-width: 280px;
@@ -467,12 +469,50 @@ p:last-child {
   right: -10px;
 }
 .widget-header:hover i {
-  color: #3167eb;
+  color: gray;
 }
 
-/* desktop only */
-/* desktop only .end */
+/* ================ SECTION-ABOUT ==================  */
+.image-aboutus-banner {
+  background: linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7)), url('/static/images/banners/warehouse.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  color: #fff;
+  padding-top: 110px;
+  padding-bottom:110px;
+}
+
+.image-world-banner {
+  background: linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7)), url('/static/images/banners/save-world.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  color: #fff;
+  padding-top: 110px;
+  padding-bottom:110px;
+}
+
+.image-shipping-banner {
+  background: linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7)), url('/static/images/banners/shipping.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  color: #fff;
+  padding-top: 110px;
+  padding-bottom:110px;
+}
+
 /* ================ SECTION-FOOTER ==================  */
+.section-footer {
+  background-color: #fff566;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  margin-top: 20px;
+}
 .section-footer ul li {
   margin-bottom: 5px;
 }
@@ -858,6 +898,7 @@ a[class*=card]:hover .title {
 /* GRID STYLE PRODUCT ITEM */
 .card-product-grid {
   margin-bottom: 20px;
+  border-width: 3px;
 }
 .card-product-grid .img-wrap {
   border-radius: 0.2rem 0.2rem 0 0;
@@ -1002,6 +1043,12 @@ a[class*=card]:hover .title {
   overflow: hidden;
 }
 
+.card-img-top {
+  width: 100%;
+  height: 15vw;
+  object-fit: contain;
+}
+
 .icontext {
   display: inline-flex;
   align-items: center;
@@ -1060,7 +1107,7 @@ a[class*=card]:hover .title {
 
 .price {
   font-weight: 600;
-  color: #212529;
+  color: #477aad;
 }
 
 .price-old {
@@ -1359,8 +1406,8 @@ a[class*=card]:hover .title {
   display: block;
 }
 .gallery-wrap .img-big-wrap img {
-  height: 450px;
-  width: auto;
+  height: auto;
+  width: 100%;
   display: inline-block;
 }
 .gallery-wrap .thumbs-wrap {
@@ -1412,4 +1459,50 @@ a[class*=card]:hover .title {
   display: block;
 }
 
-/*# sourceMappingURL=ui.css.map */
+/* Responsive slides */
+.rslides {
+  position: relative;
+  list-style: none;
+  overflow: hidden;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  }
+
+.rslides li {
+  -webkit-backface-visibility: hidden;
+  position: absolute;
+  display: none;
+  width: 100%;
+  left: 0;
+  top: 0;
+  }
+
+.rslides li:first-child {
+  position: relative;
+  display: block;
+  float: left;
+  }
+
+.rslides img {
+  display: block;
+  height: auto;
+  float: left;
+  width: 100%;
+  border: 0;
+  }
+
+  /* Table home */
+.text-home{
+    display: block;
+    display: -webkit-box;
+    max-width: 400px;
+    height: 50px;
+    margin: 0 auto;
+    line-height: 1.2;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
