@@ -2,7 +2,7 @@ from django.contrib import admin
 from .models import Cart,CartItem
 
 class CartAdmin(admin.ModelAdmin):
-    list_display = ('cart_id','created')
+    list_display = ('user','cart_id','created')
 
 class CartItemAdmin(admin.ModelAdmin):
     list_display = ('cart','product','quantity')
