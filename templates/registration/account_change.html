@@ -1,0 +1,50 @@
+{% include 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+<title>Cuenta | Jaguarete Kaa</title>    
+{% endblock title %}
+    
+
+{% block content %}
+    <section class="section-content padding-y">
+        <div class="card mx-auto border-dark" style="max-width:520px; ">
+            <div class="card-header bg-dark">
+                <p class="text-light">Mi Cuenta</p>
+            </div>
+        <div class="card-body">
+            <form method="POST">
+                {% csrf_token %}
+                    <div class="form-row">
+                        <div class="col form-group">
+                            <label class="font-weight-bold mr-2">Usuario:</label>{{user.username}}
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col form-group">
+                            <label class="font-weight-bold">Email:</label>
+                            <input type="email" class="form-control" name="email" placeholder="{{user.email}}" value="{{user.email}}" >
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col form-group">
+                            <label class="font-weight-bold">Nombre:</label>
+                            <input type="text" class="form-control" name="first_name" placeholder="{{user.first_name}}" value="{{user.first_name}}" >
+                        </div>
+                        <div class="col form-group">
+                            <label class="font-weight-bold">Apellido:</label>
+                            <input type="text" class="form-control" name="last_name" placeholder="{{user.last_name}}" value="{{user.last_name}}" >
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col text-center">
+                            <button type="submit" class="btn btn-danger">Modificar</button>
+                            <a href="{% url 'account' %}" type="button" class="btn btn-primary">Salir</a>
+                        </div>
+                    </div>
+            </form>
+        </div>
+        </div>
+    </section>
+{% endblock content %}

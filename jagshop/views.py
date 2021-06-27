@@ -4,8 +4,9 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import redirect, render
 from store.models import Product
 
-from .forms import ContactForm, SignUpForm
+from .forms import ContactForm, SignUpForm,AccountModify
 from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
 
 def home(request):
     products = Product.objects.all().filter(is_active=True).order_by('-created')
@@ -28,6 +29,26 @@ def signup(request):
     else:
         return redirect('home')
 
+@login_required(login_url='/accounts/login/')
+def account(request):
+    user = request.user
+    return render(request, "registration/account.html",{'user':user})
+
+@login_required(login_url='/accounts/login/')
+def accountModify(request):
+    user = request.user
+    if request.method == 'POST':
+        form = AccountModify(request.POST)
+        if form.is_valid():
+            user.first_name = form.cleaned_data['first_name']
+            user.last_name = form.cleaned_data['last_name']
+            user.email = form.cleaned_data['email']
+            user.save()
+        return redirect('account')
+    else:
+        form = AccountModify()
+    return render(request, 'registration/account_change.html',{'form':form})
+
 def contactView(request):
     if request.method == 'GET':
         form = ContactForm()
@@ -45,7 +66,7 @@ def contactView(request):
 
     return render(request, "contact.html", {'form': form})
 
-def successView(request):
+def successContact(request):
     return render(request,'contact.html',{'sended':'Gracias por contactarnos!'})
 
 def about(request):

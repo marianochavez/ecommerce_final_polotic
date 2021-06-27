@@ -40,7 +40,7 @@
                                 <input type="email" class="form-control" name="from_email" placeholder="{{user.email}}" value="{{user.email}}">
                             {% else %}
                                 {{form.from_email | as_crispy_field}}
-                                {{from.from_email.errors}}
+                                {{form.from_email.errors}}
                             {% endif %} 
                         </div>
                     </div>
@@ -48,14 +48,14 @@
                         <div class="col form-group">
                             <label class="font-weight-bold">Asunto:</label>
                             {{form.subject | as_crispy_field}} 
-                            {{from.subject.errors}}
+                            {{form.subject.errors}}
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="col form-group">
                             <label class="font-weight-bold">Mensaje:</label>
                             {{form.message | as_crispy_field}}
-                            {{from.message.errors}}
+                            {{form.message.errors}}
                         </div>
                     </div>
                     <div class="form-group">

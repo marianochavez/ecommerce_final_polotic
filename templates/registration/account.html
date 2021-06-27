@@ -1,0 +1,61 @@
+{% include 'base.html' %}
+{% load static %}
+
+
+{% block title %}
+<title>Cuenta | Jaguarete Kaa</title>    
+{% endblock title %}
+    
+
+{% block content %}
+    <section class="section-content padding-y">
+        <div class="card mx-auto border-dark" style="max-width:520px; ">
+            <div class="card-header bg-dark">
+                <p class="text-light">Mi Cuenta</p>
+            </div>
+        <div class="card-body">
+            <form method="POST">
+                {% csrf_token %}
+                    <div class="form-row">
+                        <div class="col form-group">
+                            <label class="font-weight-bold mr-2">Email: </label>{{user.email}}
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col form-group">
+                            <label class="font-weight-bold mr-2">Usuario: </label>{{user.username}}
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col form-group">
+                            <label class="font-weight-bold mr-2">Nombre: </label>{{user.first_name}}
+                        </div>
+                        <div class="col form-group">
+                            <label class="font-weight-bold mr-2">Apellido: </label>{{user.last_name}}
+                        </div>
+                    </div>
+                    
+                    {% if user.is_staff %}
+                    <div class="form-row">
+                        <div class="col form-group">
+                            <label class="font-weight-bold mr-2">Staff:</label><i class="fas fa-check text-success"></i>
+                        </div>
+                    </div>
+                    {% endif %}
+                        
+                    <div class="form-row mb-4">
+                        <div class="col">
+                            <a href="{% url 'password_change' %}">Cambiar contraseña</a>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col text-center">
+                            <a href="{% url 'account_modify' %}" type="button" class="btn btn-danger">Modificar datos</a>
+                            <a href="{% url 'home' %}" type="button" class="btn btn-primary">Salir</a>
+                        </div>
+                    </div>
+            </form>
+        </div>
+        </div>
+    </section>
+{% endblock content %}

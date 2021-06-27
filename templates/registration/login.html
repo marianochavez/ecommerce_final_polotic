@@ -20,8 +20,7 @@
             {% if next %}
                 <p class="h4 text-center">Para seguir, ingresa tu usuario y contraseña!</p>
             {% endif %}
-                
-            <div class="card mx-auto" style="max-width: 380px; margin-top:20px;">
+            <div class="card mx-auto bg-dark text-white" style="max-width: 380px; margin-top:20px;">
                 <div class="card-body">
                 <h4 class="card-title mb-4">Inicio de sesión</h4>
                 
@@ -35,7 +34,7 @@
                     </div> 
                     
                     <div class="form-group">
-                        <a href="#" class="float-right">Olvide la contraseña</a> 
+                        <a href="{% url 'password_reset' %}" class="float-right">Olvide la contraseña</a> 
                     
                     </div>
                     <div class="form-group">
