@@ -26,6 +26,9 @@ extra-templates
 # C extensions
 *.so
 
+# PurifyCSS
+purifycmd.txt
+
 # Distribution / packaging
 .Python
 build/
