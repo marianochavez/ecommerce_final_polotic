@@ -132,3 +132,23 @@
   .login {
     color: white;
   }
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 640px) {
+  
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (max-width: 1007px) {
+  .h4{
+    font-size: 1rem;
+  }
+  .row-account a{
+    font-size: 0.7rem;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 1008px) {
+ 
+}

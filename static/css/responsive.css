@@ -1,9 +1,5 @@
-@media (max-width: 1200px) {
+@media (max-width: 1007px) {
   /* tablet devices */
-}
-
-@media (max-width: 992px) {
-  /* small tablet devices */
 
   .table-shopping-cart tr td:first-child {
     width: 250px;
@@ -18,7 +14,7 @@
   }
 }
 
-@media all and (max-width: 768px) {
+@media all and (max-width: 640px) {
   /* mobile devices */
 
   .section-header .logo {

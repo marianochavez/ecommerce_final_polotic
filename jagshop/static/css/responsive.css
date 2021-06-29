@@ -1,9 +1,5 @@
-@media (max-width: 1200px) {
+@media (max-width: 1007px) {
   /* tablet devices */
-}
-
-@media (max-width: 992px) {
-  /* small tablet devices */
 
   .table-shopping-cart tr td:first-child {
     width: 250px;
@@ -16,9 +12,19 @@
   .table-shopping-cart .itemside .aside {
     display: none;
   }
+
+  /* footer section */
+  .footer-bottom{
+    text-align: center;
+  }
+
+  .footer-bottom div{
+    margin-bottom: 5px;
+  }
+
 }
 
-@media all and (max-width: 768px) {
+@media all and (max-width: 640px) {
   /* mobile devices */
 
   .section-header .logo {
@@ -37,5 +43,15 @@
 
   .navbar-expand .navbar-collapse {
     flex-direction: column;
+  }
+ 
+  /* footer section */
+  .footer-bottom{
+    text-align: center;
+  }
+
+  .footer-bottom div{
+    margin-bottom: 5px;
+    font-size: 0.9rem;
   }
 }

@@ -2,15 +2,14 @@
 
 <link href="{% static 'css/navbar.css' %}" rel="stylesheet" type="text/css" />
 
-
 <header class="section-header">
     <section class="header-main">
         <div class="container-fluid">
             <div class="row align-items-center">
-                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-5"> <a href="{% url 'home' %}" class="brand-wrap" data-abc="true">
+                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-5"> <a href="{% url 'home' %}" class="brand-wrap" data-abc="true">
                   <img class="img-fluid" src="{% static './images/logo_transparent.png'%}" /> </a>     
                 </div>
-                <div class="col-xl-6 col-lg-6 col-md-5 col-sm-8 d-none d-md-block">
+                <div class="col-xl-6 col-lg-6 col-md-4 col-sm-8 d-none d-md-block">
                     <form action="{% url 'search' %}" class="search" method="GET">
                         <div class="input-group w-100">
                           {% if 'search' in request.path %}
@@ -24,30 +23,30 @@
                         </div>
                       </form>
                 </div>
-                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-8 col-7">
+                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-7">
                     <div class="d-flex justify-content-end mb-3 mb-lg-0">
                         <div class="widget-header">
                           {% if user.is_authenticated %}
                             <div class="row">
                               <div class="col text-right">
-                                <p class="h4 mr-0">Hola {{user.username}}!</p>
+                                <p class="h4 mr-0" id="titulo">Hola {{user.username}}!</p>
                               </div>
                             </div>
-                            <div class="row">
+                            <div class="row row-account">
                               <a href="{% url 'account' %}">Mi Cuenta</a>
                               <span class="dark-transp"> | </span>
                               <a  href="{% url 'logout' %}">Desconectarme</a>
                             </div>
                           {% else %}
                             <small class="title ">Ingresá para utilizar la tienda!</small>
-                            <div>
+                            <div class="row-account">
                               <a href="{% url 'login' %}">Iniciar Sesion</a>
                               <span class="dark-transp"> | </span>
                               <a href="{% url 'register' %}"> Registrarse</a>
                             </div>
                           {% endif %}
                         </div>
-                        <a href="{% url 'cart' %}" class="widget-header pl-3 ml-3">
+                        <a href="{% url 'cart' %}" class="widget-header row-cart pl-3 ml-3">
                           <div class="icon icon-sm rounded-circle border border-dark">
                             <i class="fa fa-shopping-cart"></i>
                           </div>
