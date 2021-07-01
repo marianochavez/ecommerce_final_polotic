@@ -1,0 +1,1 @@
+web: gunicorn jagshop.wsgi --log-file -

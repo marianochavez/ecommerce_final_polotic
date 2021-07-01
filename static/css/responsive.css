@@ -12,6 +12,16 @@
   .table-shopping-cart .itemside .aside {
     display: none;
   }
+
+  /* footer section */
+  .footer-bottom{
+    text-align: center;
+  }
+
+  .footer-bottom div{
+    margin-bottom: 5px;
+  }
+
 }
 
 @media all and (max-width: 640px) {
@@ -33,5 +43,15 @@
 
   .navbar-expand .navbar-collapse {
     flex-direction: column;
+  }
+ 
+  /* footer section */
+  .footer-bottom{
+    text-align: center;
+  }
+
+  .footer-bottom div{
+    margin-bottom: 5px;
+    font-size: 0.9rem;
   }
 }
