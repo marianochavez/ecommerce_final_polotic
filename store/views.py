@@ -2,7 +2,6 @@ from django.urls.base import is_valid_path
 from store.forms import ProductForm
 from cart.models import CartItem
 from cart.views import _cart_id
-# from category.models import Category
 from django.core import paginator
 from django.core.paginator import EmptyPage, Page, PageNotAnInteger, Paginator
 from django.db.models import Q
@@ -36,6 +35,7 @@ def store(request,category_slug=None):
     context = {
         'products': paged_products,
         'product_count':product_count,
+        'category':categories,
     }
     return render(request,'store/store.html',context)
 

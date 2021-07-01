@@ -1,12 +1,13 @@
 from django.contrib.auth import authenticate, login
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 from django.core.mail import BadHeaderError, send_mail
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import redirect, render
 from store.models import Product
 
-from .forms import ContactForm, SignUpForm,AccountModify
-from django.contrib.auth.models import User
-from django.contrib.auth.decorators import login_required
+from .forms import AccountModify, ContactForm, SignUpForm
+
 
 def home(request):
     products = Product.objects.all().filter(is_active=True).order_by('-created')

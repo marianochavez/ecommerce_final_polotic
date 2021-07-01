@@ -72,7 +72,8 @@
           <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#dropdown6" aria-expanded="false"> <span class="navbar-toggler-icon"></span> </button>
           <div class="navbar-collapse collapse" id="dropdown6">
               <ul class="navbar-nav mx-auto">
-                <li class="nav-item"> <a class="nav-link active" href="{% url 'home' %}" data-abc="true">Home</a> </li>  
+                {% with url_name=request.resolver_match.url_name %}
+                <li class="nav-item"> <a class="nav-link {% if url_name == 'home' %}font-weight-bolder text-reset{% endif %}" href="{% url 'home' %}" data-abc="true">Home</a> </li>  
                 <li class="nav-item dropdown"> 
                   <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       Categorias
@@ -83,12 +84,13 @@
                     {% endfor %}
                   </div>
                 </li>
-                <li class="nav-item"> <a class="nav-link" href="{% url 'about' %}" data-abc="true">Nosotros</a> </li>
-                <li class="nav-item"> <a class="nav-link" href="{% url 'contact' %}" data-abc="true">Contacto</a> </li>
+                <li class="nav-item"> <a class="nav-link {% if url_name == 'about' %}font-weight-bolder text-reset{%endif%}" href="{% url 'about' %}" data-abc="true">Nosotros</a> </li>
+                <li class="nav-item"> <a class="nav-link {% if url_name == 'contact' %}font-weight-bolder text-reset{%endif%}" href="{% url 'contact' %}" data-abc="true">Contacto</a> </li>
                 
                 {% if user.is_authenticated and user.is_staff %}
-                  <li class="nav-item"> <a class="nav-link" href="{% url 'product_create' %}" data-abc="true">Nuevo Producto</a> </li>
+                  <li class="nav-item"> <a class="nav-link {% if url_name == 'product_create' %}font-weight-bolder text-reset{%endif%}" href="{% url 'product_create' %}" data-abc="true">Nuevo Producto</a> </li>
                 {% endif %}
+                {% endwith %}
               </ul>
           </div>
       </div>

@@ -1,11 +1,10 @@
+from django.contrib.auth.decorators import login_required
 from django.core.exceptions import ObjectDoesNotExist
 from django.http.response import HttpResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from store.models import Product
 
 from .models import Cart, CartItem
-
-from django.contrib.auth.decorators import login_required
 
 
 def _cart_id(request):
