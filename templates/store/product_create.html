@@ -38,9 +38,12 @@
             </div>
             <div class="form-row">
                 <div class="col">
-                    <label for="" class="font-weight-bold">Imagen:</label>
+                    <label for="" class="font-weight-bold">Imagen local:</label>
                     {{form.image | as_crispy_field}}
                     {{form.image.errors}}
+                    <label for="" class="font-weight-bold">Imagen link (preferible):</label>
+                    {{form.image_link | as_crispy_field}}
+                    {{form.image_link.errors}}
                 </div>
             </div>
             <div class="form-row mb-2">

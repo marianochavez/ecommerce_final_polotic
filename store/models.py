@@ -25,6 +25,7 @@ class Product(models.Model):
     description = RichTextField()
     price = models.IntegerField()
     image = models.ImageField(upload_to='products',default='default_prod.jpg')
+    image_link = models.URLField(default='https://i.imgur.com/dQpzDHi.jpg')
     created = models.DateTimeField(auto_now=False, auto_now_add=True)
     stock = models.IntegerField(default=1)
     is_active = models.BooleanField(default=True)

@@ -23,7 +23,11 @@
 				<div class="col-md-4">
 					<div class="card card-product-grid">
 						<a href="{{product.get_url}}">
-							<img class="card-img-top border-bottom" src="{{product.image.url}}">
+							{% if product.image_link %}
+								<img class="card-img-top border-bottom" src="{{product.image_link}}">
+							{% else %}
+								<img class="card-img-top border-bottom" src="{{product.image.url}}">
+							{% endif %}
 						</a> 
 						<div class="info-wrap">
 							<div class="fix-height">

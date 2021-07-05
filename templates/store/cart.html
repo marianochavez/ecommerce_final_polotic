@@ -40,7 +40,11 @@
                 <td>
                   <figure class="itemside align-items-center">
                     <div class="aside img-cart">
-                      <img src="{{cart_item.product.image.url}}" class="img-fluid"/>
+                      {% if cart_item.product.image_link %}
+                          <img class="img-fluid" src="{{cart_item.product.image_link}}">
+                      {% else %}
+                          <img class="img-fluid" src="{{cart_item.product.image.url}}">
+                      {% endif %}
                     </div>
                     <figcaption class="info">
                       <a href="{{ cart_item.product.get_url }}" class="title text-dark">{{cart_item.product.title}}</a>

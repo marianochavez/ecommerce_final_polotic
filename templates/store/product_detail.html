@@ -15,7 +15,11 @@
 				<aside class="col-md-6">
 		<article class="gallery-wrap"> 
 			<div class="img-big-wrap">
-				<img class="img-fluid" src="{{single_product.image.url}}">
+				{% if single_product.image_link %}
+					<img class="img-fluid" src="{{single_product.image_link}}">
+				{% else %}
+					<img class="img-fluid" src="{{single_product.image.url}}">
+				{% endif %}
 			</div> 
 			
 		</article> 
